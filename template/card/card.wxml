@@ -5,7 +5,12 @@
 <template name="card-score">
   <view class="card-score">
     <view class="card-score__head">
-      <text class="card-score__title">{{title}}</text>
+    <view class="cj-text">
+                <text class="card-score__title">{{title}}</text>
+                <text class="cj-header-info">姓名：{{name}}</text>
+            </view>
+      <!-- <text class="card-score__title">{{title}}</text>
+      <text class=".card-header-info">姓名：{{name}}</text> -->
       <button class="card-score__share" bindtap="showHelp">
         <!-- <image class="card-score__ic-share" src="/image/common/sync.png"></image> -->
         <view style='font-size: 10pt;'>刷新</view>

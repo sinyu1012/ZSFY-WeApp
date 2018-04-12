@@ -30,7 +30,7 @@
         <!-- <view class="weui-panel__hd">失物招领</view> -->
         <view class="weui-panel__bd">
           <block wx:if="{{diaryList.length>0}}">
-             <navigator class="weui-media-box weui-media-box_text" wx:for="{{diaryList}}" wx:key="diaryItem" > 
+            <navigator class="weui-media-box weui-media-box_text" wx:for="{{diaryList}}" wx:key="diaryItem">
               <view class="weui-media-box__title weui-media-box__title_in-text">
                 {{item.title}}</view>
               <view class="weui-media-box__desc">{{item.describe}}</view>
@@ -70,7 +70,7 @@
     </view>
     <form bindsubmit="addDiary" report-submit="true">
       <view class="weui-dialog__bd">
-         <view class="weui-cells__title">标题</view> 
+        <view class="weui-cells__title">标题</view>
         <view class="weui-cells weui-cells_after-title">
           <view class="weui-cell weui-cell_input">
             <view class="weui-cell__bd">
@@ -78,7 +78,7 @@
             </view>
           </view>
         </view>
-         <view class="weui-cells__title">内容</view> 
+        <view class="weui-cells__title">内容</view>
         <view class="weui-cells weui-cells_after-title">
           <view class="weui-cell">
             <view class="weui-cell__bd">
@@ -87,7 +87,7 @@
             </view>
           </view>
         </view>
-        <view class="weui-cells__title">联系</view> 
+        <view class="weui-cells__title">联系</view>
         <view class="weui-cells weui-cells_after-title">
           <view class="weui-cell weui-cell_input">
             <view class="weui-cell__bd">

@@ -1,7 +1,10 @@
-<view class="login-icon">
+<!-- <view class="login-icon">
   <image class="login-img i-header-home" src="/image/czfy_chang.png"></image>
-</view>
-
+</view> -->
+  <view class="page__hd i-header">
+    <view class="i-header-h1 h50">绑定纺院教务系统账号，实时获取信息！</view>
+    <view class="i-header-h1"></view>
+  </view>
 
 <form bindsubmit="formSubmit" bindreset="formReset">
   <view class="section">

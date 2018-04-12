@@ -9,7 +9,31 @@
   overflow-y: scroll;
   background-color: #f7f7f7;
 }
-
+.cj-header{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50rpx 0;
+}
+.cj-text{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    padding-left: 25rpx;
+}
+.cj-header-title{
+    font-size: 20pt;
+    font-weight: bold;
+    line-height: 150%;
+    margin-bottom: 15rpx;
+    color: #222;
+}
+.cj-header-info{
+    font-size: 11pt;
+    line-height: 160%; 
+    color: #888;
+}
 /* 详细信息 */
 .score-detail {
   position: fixed;

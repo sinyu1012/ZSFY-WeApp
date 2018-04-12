@@ -10,6 +10,7 @@
   font-size: 11pt;
   border-bottom: solid 1rpx #eee;
   z-index: 1;
+  background-color: #fff
 }
 .input-placeholder {
   color: #999;

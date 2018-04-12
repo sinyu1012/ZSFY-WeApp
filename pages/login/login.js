@@ -88,9 +88,9 @@ Page({
               'content-type': 'application/x-www-form-urlencoded' // 默认值
             },
             method: "POST",
-            success: function (res) {
-              console.log(res)
-              if (res.data.flag == 1) {
+            success: function (result) {
+              console.log(result)
+              if (result.data.flag == 1) {
                 wx.setStorage({
                   key: 'xh',
                   data: event.detail.value.username,
@@ -103,6 +103,13 @@ Page({
                   data: event.detail.value.paswd,
                   success: function (s) {
                     console.log('异步保存成功pwd:' + event.detail.value.paswd)
+                  }
+                })
+                wx.setStorage({
+                  key: 'name',
+                  data: res.data.stuPerInfo.name,
+                  success: function (s) {
+                    console.log('异步保存成功name:' + res.data.stuPerInfo.name)
                   }
                 })
                 that.setData({

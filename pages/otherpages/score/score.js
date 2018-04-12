@@ -11,6 +11,7 @@ Page({
     openid:'',
     secret:'',
     cookie:'',
+    name:'',
     loading: false,
     imageUrl:'/image/yzmloading.png',
     yzmindex:1,
@@ -28,6 +29,7 @@ Page({
 
   onLoad: function() {
     that = this;
+   
     if (wx.getStorageSync('isBindFlag') != 1) {
       wx.showToast({
         title: '请先绑定学号',
@@ -42,7 +44,11 @@ Page({
      
       }
   },
-
+  onShow:function(){
+    this.setData({
+      name: wx.getStorageSync('name')
+    })
+  },
   onPullDownRefresh: function() {
     // this.getScore();
     // wx.stopPullDownRefresh();

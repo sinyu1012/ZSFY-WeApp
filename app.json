@@ -14,7 +14,8 @@
     "pages/index/joinad/joinad",
     "pages/profile/share/share",
     "pages/otherpages/score/score",
-    "pages/library/library"
+    "pages/library/library",
+    "pages/library/query"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -41,7 +42,7 @@
         "text": "课表"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/library/library",
         "iconPath": "image/widget_bar_interest_normal.png",
         "selectedIconPath": "image/widget_bar_interest_press.png",
         "text": "图书馆"

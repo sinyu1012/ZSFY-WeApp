@@ -1,11 +1,11 @@
 <!-- 导入模板 -->
 <import src="/template/card/card.wxml" />
 <import src="/template/help/help.wxml" />
-
+       
 <!-- 成绩查询 -->
 <view class="score">
   <!-- 成绩卡片 -->
-  <template is="card-score" data="{{title: title, scoreList: scoreList}}" />
+  <template is="card-score" data="{{title: title, scoreList: scoreList,name: name}}" />
   <!-- 帮助 -->
   <template is="help" data="{{...help}}" />
 </view>

@@ -9,6 +9,24 @@
   border-radius: 4rpx;
   overflow: hidden;
 }
+.cj-text{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    padding-left: 25rpx;
+}
+.cj-header-title{
+    font-size: 20pt;
+    font-weight: bold;
+    line-height: 150%;
+    margin-bottom: 15rpx;
+    color: #222;
+}
+.cj-header-info{
+    font-size: 10pt;
+    line-height: 160%; 
+    color: #888;
+}
 .card-score__head {
   display: flex;
   justify-content: space-between;
@@ -17,8 +35,8 @@
   border-bottom: solid 1rpx #eee;
 }
 .card-score__title {
-  margin-bottom: 15rpx;
-  font-size: 16pt;
+  margin-bottom: 5rpx;
+  font-size: 12pt;
   font-weight: bold;
   color: #000;
 }
