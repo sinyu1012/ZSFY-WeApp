@@ -1,7 +1,7 @@
 <!-- 顶部搜索 -->
 <template name="bar-search">
   <view class="bar-search">
-    <input id="query" class="bar-search__input {{queryFocus === true ? 'input-active' : ''}}" value="{{value}}" confirm-type="search" placeholder="{{placeholder}}" bindinput="handleInput" bindconfirm="queryBook" bindfocus="inputFocus" bindblur="inputBlur" value='软件'
+    <input id="query" class="bar-search__input {{queryFocus === true ? 'input-active' : ''}}" value="{{value}}" confirm-type="search" placeholder="{{placeholder}}" bindinput="handleInput" bindconfirm="queryBook" bindfocus="inputFocus" bindblur="inputBlur" 
     />
     <image class="bar-search__icon" src="/image/common/search.png" bindtap="queryBook"></image>
   </view>

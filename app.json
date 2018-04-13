@@ -15,7 +15,9 @@
     "pages/profile/share/share",
     "pages/otherpages/score/score",
     "pages/library/library",
-    "pages/library/query"
+    "pages/library/query",
+    "pages/profile/about/about",
+    "pages/profile/about/donate"
   ],
   "window": {
     "backgroundTextStyle": "light",

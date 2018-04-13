@@ -28,6 +28,7 @@ Page({
         'content-type': 'application/x-www-form-urlencoded' // 默认值
       },
       success: function (res) {
+        console.log(res)
         that.setData({
           hiddenLoading: true,
           name: res.data.name,

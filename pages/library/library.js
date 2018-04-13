@@ -1,5 +1,6 @@
 var app = getApp();
-
+var Bmob = require('../../utils/bmob.js');
+var common = require('../../utils/common.js');
 Page({
   data: {
     // 借阅图书
@@ -33,10 +34,10 @@ Page({
   },
 
   onLoad: function() {
-    // this.checkUserInfo();
-    // if (app.store.libPassWord) {
-    //   this.getBorrowing();
-    // }
+    wx.showShareMenu({
+      withShareTicket: true //要求小程序返回分享目标信息
+    })
+    
   },
 
   onPullDownRefresh: function() {
@@ -85,19 +86,6 @@ Page({
     }
   },
 
-  // 检查是否绑定密码
-  checkUserInfo: function() {
-    if (app.store.libPassWord) {
-      // 更新视图
-      this.setData({
-        modelStatus: false
-      });
-
-      return true;
-    } else {
-      return false;
-    }
-  },
 
   // 查询图书
   queryBook: function(e) {
@@ -112,53 +100,6 @@ Page({
         url: 'query?q=' + this.data.query
       });
     }
-  },
-
-  // 获取借阅信息
-  getBorrowing: function() {
-    // 加载中
-    wx.showLoading({
-      title: '获取中',
-      mask: true
-    });
-
-    wx.request({
-      url: app.api + '/library/borrowing',
-      method: 'GET',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded',
-        Authorization: 'Bearer ' + app.store.token
-      },
-      success: requestRes => {
-        var _requestRes = requestRes.data;
-        // console.log(requestRes);
-
-        if (_requestRes.statusCode === 200) {
-          // console.log(_requestRes);
-          this.setData({
-            borrowingList: _requestRes.data
-          });
-        } else {
-          wx.hideLoading();
-          wx.showToast({
-            title: '获取失败',
-            image: '/images/common/fail.png',
-            duration: 2000
-          });
-        }
-      },
-      fail: () => {
-        wx.hideLoading();
-        wx.showToast({
-          title: '未知错误',
-          image: '/images/common/fail.png',
-          duration: 2000
-        });
-      },
-      complete: () => {
-        wx.hideLoading();
-      }
-    });
   },
 
   // 更新用户信息
@@ -279,5 +220,61 @@ Page({
         'help.helpStatus': false
       });
     }
-  }
+  },
+  onShareAppMessage: function (res) {
+    var that = this;
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: 'FY掌上大学',
+      path: 'pages/index/index',
+      success: function (res) {
+        // 转发成功
+        console.log('成功', res)
+
+        wx.getShareInfo({
+          shareTicket: res.shareTickets,
+          success(res) {
+
+            var user = new Bmob.User();//开始注册用户
+            var iv = res.iv;
+            var encryptedData = res.encryptedData;
+
+            wx.login({
+              success: function (res) {
+                user.loginWithWeapp(res.code).then(function (user) {
+                  var sessionKey = user.get("authData").weapp.session_key;
+                  console.log(user);
+                  var data = {
+                    "sessionKey": sessionKey,
+                    "encryptedData": encryptedData,
+                    "iv": iv
+                  }
+                  console.log(data);
+                  Bmob.Cloud.run('getPhone', data, {
+                    success: function (result) {
+                      that.setData({
+                        "shareInfo": result
+                      });
+                      console.log(result);
+                    },
+                    error: function (error) {
+                    }
+                  })
+
+                });
+              }
+            });
+
+
+          }
+        })
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
+  },
 });

@@ -33,7 +33,10 @@ Page({
       })
     },
     goAboutUs: function (e) {
-      common.showModal('作者：软件1431-沈新宇\r\n我们是机电工程系移动互联应用开发兴趣小组，我们崇尚技术的力量，同时也欣赏设计的美！');
+      // common.showModal('作者：软件1431-沈新宇\r\n我们是机电工程系移动互联应用开发兴趣小组，我们崇尚技术的力量，同时也欣赏设计的美！');
+      wx.navigateTo({
+        url: 'about/about'
+      })
     },
     removeBind:function(e){
       wx.navigateTo({

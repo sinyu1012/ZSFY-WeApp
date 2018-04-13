@@ -4,35 +4,16 @@
 <import src="/template/bar/bar.wxml" />
 <import src="/template/placeholder/placeholder.wxml" />
 <import src="/template/list/list.wxml" />
+  <view class="page__hd i-header">
+    <view class="i-header-h1 h50">右上角分享该程序，让更多的同学加入我们！</view>
 
+  </view>
 <!-- 图书馆 -->
 <view class="library">
   <!-- 顶部搜索 -->
   <template is="bar-search" data="{{placeholder: '馆藏查询', queryFocus: queryFocus}}" />
 
-  <!-- 借阅图书列表 -->
-  <block wx:for="{{borrowingList}}" wx:key="{{item.name}}">
-    <template is="list-book" data="{{...item, borrowing: true, id: 'borrowing'}}" />
-  </block>
-
-  <view wx:if="{{borrowingList.length}}" class="foot">
-    <text class="foot__tip">已显示全部</text>
-  </view>
-
-  <template wx:if="{{!borrowingList.length}}" is="placeholder-fullpage" data="{{bg: '/image/placeholder/bg_book.png'}}" />
 </view>
-
-<!-- <view wx:if="{{modelStatus}}" class="model" id="model" bindtap="hideModel">
-  <view class="model__box">
-    <view class="model__content">
-      <input id="libPassWord" type="password" class="model__input {{libPassWordFocus === true ? 'input-active' : ''}}" value=""
-        confirm-type="done" placeholder="图书馆登陆密码" bindinput="handleInput" bindfocus="inputFocus" bindblur="inputBlur" />
-      <image class="model__ic-send" src="/image/common/send.png" bindtap="submit"></image>
-      <!-- tip -->
-      <!-- <template is="tip-basic" data="{{text: '不清楚登陆密码, ', help: '帮助?'}}" />
-    </view>
-  </view>
-</view> --> 
 
 <!-- 帮助 -->
 <template is="help" data="{{...help}}" />

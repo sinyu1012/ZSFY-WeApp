@@ -8,10 +8,20 @@ Page({
     detailStatus: false,
     windowHeight: 0,
     windowWidth: 0,
-    pageNum:1
+    currentPage:1,
+    allPages:1,
+    hideHeader: true,
+    hideBottom: true,
+    refreshTime: '', // 刷新的时间 
+    scrollTop:0,
+    loadMoreData:'上拉加载下一页',
   },
 
   onLoad: function (option) {
+    var date = new Date();
+    this.setData({
+      refreshTime: date.toLocaleTimeString()
+    })
     if (option.q) {
       this.setData({
         query: option.q
@@ -57,7 +67,9 @@ Page({
   queryBook: function (e) {
     if (e && e.target.id === 'query') {
       this.setData({
-        query: e.detail.value
+        query: e.detail.value,
+        currentPage: 1,
+        allPages: 1,
       });
     }
     // 加载中
@@ -77,10 +89,12 @@ Page({
       },
       success: requestRes => {
         var _requestRes = requestRes.data;
-        console.log(requestRes);
+        console.log(_requestRes.lists[0].page);
+        var pageNum = _requestRes.lists[0].page;
         if (_requestRes.lists.length > 0) {
           this.setData({
-            bookList: _requestRes.lists
+            bookList: _requestRes.lists,
+            allPages: pageNum.split("/")[1]//总页数
           });
         } else {
           wx.hideLoading();
@@ -111,7 +125,7 @@ Page({
     });
     // 加载中
     wx.showLoading({
-      title: '查询中',
+      title: '加载中',
       mask: true
     });
 
@@ -169,14 +183,52 @@ Page({
   pullUpLoad: function (e) {
     this.nextPage()
   },
-  nextPage:function(e){
+
+  onPullDownRefresh: function () {
+    console.log('下拉上一页');
+    var self = this;
+    // 当前页是最后一页
+    if (self.data.currentPage == 1) {
+      wx.showToast({
+        title: '已是第一页',
+        icon: 'success',
+        duration: 2000
+      })
+      return;
+    }
     this.setData({
-      pageNum: this.data.pageNum+1
+      currentPage: this.data.currentPage - 1
     })
-    console.log('pageNum:'+this.data.pageNum)    
+    this.nextPage('上一页');
+    
+  }, 
+  onReachBottom: function () {
+    console.log("上拉加载下一页")
+    var self = this;
+    // 当前页是最后一页
+    if (self.data.currentPage == self.data.allPages) {
+      self.setData({
+        loadMoreData: '已加载全部'
+      })
+      return;
+    }
+    this.setData({
+      currentPage: this.data.currentPage + 1
+    })
+    this.nextPage('下一页');
+    self.setData({
+      hideBottom: false
+    })
+
+    
+  }, 
+
+  
+  nextPage:function(title){
+    console.log('currentPage:' + this.data.currentPage)    
     // 加载中
     wx.showLoading({
-      title: '查询中',
+      title: title,
       mask: true
     });
 
@@ -185,18 +237,23 @@ Page({
       method: 'POST',
       data: {
         bookName: this.data.query,
-        num:this.data.pageNum
+        num: this.data.currentPage
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: requestRes => {
         var _requestRes = requestRes.data;
-        console.log(requestRes);
+        // console.log(_requestRes);
         if (_requestRes.lists.length > 0) {
           this.setData({
-            bookList: that.data.bookList.lists+ _requestRes.lists
+            bookList:  _requestRes.lists,
           });
+          wx.pageScrollTo({
+            scrollTop: 0
+          })
+          console.log(this.data.bookList);
+          
         } else {
           wx.hideLoading();
           wx.showToast({
