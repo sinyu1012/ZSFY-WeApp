@@ -10,6 +10,8 @@ Page({
     const that = this;
     that.setData({
       xh: e.detail.value.xhinput//获取学号 通过表单
+
+      
     })
   },
   query: function (e) {//打卡次数查询
