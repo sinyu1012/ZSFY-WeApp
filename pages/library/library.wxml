@@ -4,9 +4,8 @@
 <import src="/template/bar/bar.wxml" />
 <import src="/template/placeholder/placeholder.wxml" />
 <import src="/template/list/list.wxml" />
-  <view class="page__hd i-header">
-    <view class="i-header-h1 h50">右上角分享该程序，让更多的同学加入我们！</view>
-
+   <view class="page__hd i-header-home">
+    <image class="page__hd i-header-home" src="/image/home_czfy.jpg"></image> 
   </view>
 <!-- 图书馆 -->
 <view class="library">
