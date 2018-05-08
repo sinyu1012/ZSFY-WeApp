@@ -13,6 +13,5 @@
   <template is="bar-search" data="{{placeholder: '馆藏查询', queryFocus: queryFocus}}" />
 
 </view>
-
 <!-- 帮助 -->
 <template is="help" data="{{...help}}" />

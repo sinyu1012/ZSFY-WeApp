@@ -17,7 +17,9 @@
     "pages/library/library",
     "pages/library/query",
     "pages/profile/about/about",
-    "pages/profile/about/donate"
+    "pages/profile/about/donate",
+    "pages/otherpages/launchApp/launchApp",
+    "pages/otherpages/webView/webView"
   ],
   "window": {
     "backgroundTextStyle": "light",

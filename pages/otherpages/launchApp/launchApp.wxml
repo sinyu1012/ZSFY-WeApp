@@ -1,0 +1,20 @@
+<import src="../../../style/footer.wxml" />
+<view class="page">
+  <view class="page__hd i-header">
+    <view class="i-header-h1 h50">下载并安装[FY掌上大学]APP！</view>
+    <view class="i-header-h1"></view>
+  </view>
+  <view class="page__bd">
+   <view class="section">
+    </view>
+    <view class="btn-area">
+     <button bindtap='download'>下载APP</button>
+    
+    </view>
+<view class="btn-area">
+ 
+      <button open-type="launchApp" app-parameter="wechat" binderror="launchAppError">打开APP</button>
+    </view>
+  </view>
+    <template is="foot" />
+</view>

@@ -10,8 +10,8 @@ var grids = [
   { "name": "服务加盟", "ico": "home_join.png", "url": "joinad/joinad" },
   { "name": "打卡查询", "ico": "home_xiaopic.png", "url": "../otherpages/queryzaocao/queryzaocao" },
   { "name": "解除绑定", "ico": "home_unbind.png", "url":"../login/unBind/unBind"},
-  { "name": "打开APP", "ico": "home_app.png", "url": "../otherpages/developmenting/developmenting" },
-  { "name": "课表查询", "ico": "home_timetable.png", "url": "../timetable/timetable" },
+  { "name": "打开APP", "ico": "home_app.png", "url": "../otherpages/launchApp/launchApp" },
+   { "name": "校园运动", "ico": "home_timetable.png", "url": "../timetable/timetable" },
 ];
 Page({
   data: {
