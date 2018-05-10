@@ -2,14 +2,20 @@
 
   <view>
   <view class="container" slot="qy-content">
-    <view class="info-card">
+    <view class="info-card" bindtap='bind_userinfo'>
       <view class="main-info">
         <view class="main-info-avatar" style="background-image:url({{avatar}})"></view>
-         <view class="main-info-name">
+         <view class="main-info-name" >
           <!-- <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image> -->
           <view class="main-info-items" style="font-size:32rpx">{{userInfo.nickName}}</view>
           <view class="main-info-items" style="margin-top:15rpx">已绑定学号：{{xh}}</view>
         </view> 
+      </view>
+    </view>
+    <view class="function-line">
+      <view class="function-line-image" style="background-image:url('http://p37nq1juh.bkt.clouddn.com/userpage/mine_icon_help.png')"></view>
+      <view bindtap="goFeedback" class="function-line-content">个人资料
+        <view class="function-line-arrow"></view>
       </view>
     </view>
     <view class="function-line">

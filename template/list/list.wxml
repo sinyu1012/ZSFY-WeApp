@@ -7,7 +7,7 @@
     <text class="list-basic__l-text">{{lText}}</text>
     <view class="list-basic__r-wrap">
       <text class="list-basic__r-text">{{rText}}</text>
-      <image class="list-basic__r-icon" src="/images/more/arrow_right.png"></image>
+      <image class="list-basic__r-icon" src="/image/more/arrow_right.png"></image>
       <image wx:if="{{avatar}}" class="list-basic__r-avatar" src="{{avatar}}"></image>
     </view>
   </navigator>
@@ -26,7 +26,7 @@
     <view class="list-icon__item">
       <image class="list-icon__l-icon" src="{{lIcon}}"></image>
       <text class="list-icon__text">{{text}}</text>
-      <image class="list-icon__r-icon" src="/images/more/arrow_right.png"></image>
+      <image class="list-icon__r-icon" src="/image/more/arrow_right.png"></image>
     </view>
   </navigator>
 </template>
@@ -40,7 +40,7 @@
         <text class="list-avatar__nickName">{{nickName}}</text>
         <text class="list-avatar__bind">{{bind ? '已绑定' : '未绑定'}}</text>
       </view>
-      <image class="list-avatar__r-icon" src="/images/more/arrow_right.png"></image>
+      <image class="list-avatar__r-icon" src="/image/more/arrow_right.png"></image>
     </navigator>
   </view>
 </template>

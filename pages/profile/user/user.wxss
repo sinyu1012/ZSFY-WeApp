@@ -1,0 +1,6 @@
+.userinfo {
+  padding: 15rpx 45rpx 45rpx;
+}
+.back {
+  background-color: #fff;
+}

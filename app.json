@@ -19,7 +19,8 @@
     "pages/profile/about/about",
     "pages/profile/about/donate",
     "pages/otherpages/launchApp/launchApp",
-    "pages/otherpages/webView/webView"
+    "pages/otherpages/webView/webView",
+    "pages/profile/user/user"
   ],
   "window": {
     "backgroundTextStyle": "light",

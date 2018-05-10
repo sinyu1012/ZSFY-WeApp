@@ -27,6 +27,11 @@ Page({
         })
 
     },
+    bind_userinfo:function(e){
+      wx.navigateTo({
+        url: 'user/user'
+      })
+    },
     goFeedback:function(e){
       wx.navigateTo({
         url: 'feedback/feedback'

@@ -1,0 +1,13 @@
+<!-- 导入模板 -->
+<import src="/template/list/list.wxml" />
+<view calss='background-color: #fff;height：100%'>
+<!-- 用户信息 -->
+  <view class="userinfo">
+    <template is="list-basic" data="{{lText: '头像', avatar: userInfo.avatar}}" />
+    <template is="list-basic" data="{{lText: '昵称', rText: userInfo.nickName}}" />
+    <template is="list-basic" data="{{lText: '姓名', rText: userInfo.name}}" />
+    <template is="list-basic" data="{{lText: '学号', rText: userInfo.studentId}}" />
+    <template is="list-basic" data="{{lText: '寝室', rText: userInfo.dormitory}}" />
+    <template is="list-basic" data="{{href: '/pages/more/binding', lText: '账号绑定', rText: bind ? '已绑定' : '未绑定'}}" />
+  </view>
+</view>
