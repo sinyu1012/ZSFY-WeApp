@@ -17,6 +17,58 @@ Page({
   data: {
     userInfo: {},
     grids: grids,
+    bind:true,
+    tools: [
+      [
+        {
+          id: 'course',
+          name: '成绩查询',
+          url: '../otherpages/score/score'
+        },
+        {
+          id: 'classroom',
+          name: '学号绑定',
+          url: '../login/login'
+        },
+        {
+          id: 'score',
+          name: '失物招领',
+          url: '../otherpages/foundlost/index'
+        },
+        {
+          id: 'library',
+          name: '打卡查询',
+          url: '../otherpages/queryzaocao/queryzaocao'
+        },
+        {
+          id: 'card',
+          name: '服务加盟',
+          url: '../otherpages/queryzaocao/queryzaocao'
+        },
+        {
+          id: 'repair',
+          name: '报修',
+          url: '/pages/tools/repair/repair'
+        },
+        {
+          id: 'cet',
+          name: '四六级',
+          url: '/pages/tools/cet/cet'
+        },
+        {
+          id: 'physical',
+          name: '体测查询',
+          url: '/pages/tools/physical/physical'
+        }
+      ],
+      [
+        {
+          id: 'calendar',
+          name: '校历',
+          url: '/pages/tools/calendar/calendar'
+        }
+      ]
+    ],
   },
   onLoad: function () {
     wx.clearStorage()
@@ -75,79 +127,79 @@ Page({
       }
     })
     //获取openid
-    wx.login({
-      success: function (res) {
-        if (res.code) {
-          //发起网络请求
-          console.log(res.code)
-          Bmob.User.requestOpenId(res.code, {
-            success: function (result) {
-              wx.setStorage({
-                key: 'openid',
-                data: result.openid,
-                success: function (s) {
-                  console.log('异步保存成功openid:' + result.openid)
-                }
-              })
-              console.log(result)
-              //获取是否绑定信息
-              wx.request({
-                url: getApp().data.isBindInfoUrl,
-                header: {
-                  'content-type': 'application/x-www-form-urlencoded' // 默认值
-                },
-                method: "POST",
-                data: {
-                  openid: result.openid
-                },
-                success: function (res) {
-                  console.log(res)
-                  //缓存数据
-                  wx.setStorage({
-                    key: 'isBindFlag',
-                    data: res.data.flag,
-                    success: function (s) {
-                      console.log('异步保存成功flag:' + res.data.flag)
-                    }
-                  })
-                  if (res.data.flag == 1) {
-                    wx.setStorage({
-                      key: 'xh',
-                      data: res.data.xh,
-                      success: function (s) {
-                        console.log('异步保存成功xh:' + res.data.xh)
-                      }
-                    })
-                    wx.setStorage({
-                      key: 'pwd',
-                      data: res.data.pwd,
-                      success: function (s) {
-                        console.log('异步保存成功pwd:' + res.data.pwd)
-                      }
-                    })
-                    wx.setStorage({
-                      key: 'name',
-                      data: res.data.name,
-                      success: function (s) {
-                        console.log('异步保存成功name:' + res.data.name)
-                      }
-                    })
-                  }
+    // wx.login({
+    //   success: function (res) {
+    //     if (res.code) {
+    //       //发起网络请求
+    //       console.log(res.code)
+    //       Bmob.User.requestOpenId(res.code, {
+    //         success: function (result) {
+    //           wx.setStorage({
+    //             key: 'openid',
+    //             data: result.openid,
+    //             success: function (s) {
+    //               console.log('异步保存成功openid:' + result.openid)
+    //             }
+    //           })
+    //           console.log(result)
+    //           //获取是否绑定信息
+    //           wx.request({
+    //             url: getApp().data.isBindInfoUrl,
+    //             header: {
+    //               'content-type': 'application/x-www-form-urlencoded' // 默认值
+    //             },
+    //             method: "POST",
+    //             data: {
+    //               openid: result.openid
+    //             },
+    //             success: function (res) {
+    //               console.log(res)
+    //               //缓存数据
+    //               wx.setStorage({
+    //                 key: 'isBindFlag',
+    //                 data: res.data.flag,
+    //                 success: function (s) {
+    //                   console.log('异步保存成功flag:' + res.data.flag)
+    //                 }
+    //               })
+    //               if (res.data.flag == 1) {
+    //                 wx.setStorage({
+    //                   key: 'xh',
+    //                   data: res.data.xh,
+    //                   success: function (s) {
+    //                     console.log('异步保存成功xh:' + res.data.xh)
+    //                   }
+    //                 })
+    //                 wx.setStorage({
+    //                   key: 'pwd',
+    //                   data: res.data.pwd,
+    //                   success: function (s) {
+    //                     console.log('异步保存成功pwd:' + res.data.pwd)
+    //                   }
+    //                 })
+    //                 wx.setStorage({
+    //                   key: 'name',
+    //                   data: res.data.name,
+    //                   success: function (s) {
+    //                     console.log('异步保存成功name:' + res.data.name)
+    //                   }
+    //                 })
+    //               }
                  
-                }
-              })
-            },
-            error: function (error) {
-              // Show the error message somewhere
-              console.log("Error: " + error.code + " " + error.message);
-            }
-          });
-        } else {
-          console.log('获取用户登录态失败！' + res.errMsg)
-          common.showTip('获取用户登录态失败！', 'loading');
-        }
-      }
-    });
+    //             }
+    //           })
+    //         },
+    //         error: function (error) {
+    //           // Show the error message somewhere
+    //           console.log("Error: " + error.code + " " + error.message);
+    //         }
+    //       });
+    //     } else {
+    //       console.log('获取用户登录态失败！' + res.errMsg)
+    //       common.showTip('获取用户登录态失败！', 'loading');
+    //     }
+    //   }
+    // });
 
   },
   onShareAppMessage: function (res) {

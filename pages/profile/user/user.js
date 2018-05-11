@@ -17,14 +17,14 @@ Page({
   },
   getUserInfo: function() {
     var store = app.store;
-    // console.log(store)
+    console.log(store)
 
     if (JSON.stringify(store) !== '{}') {
       var userInfo = {
         avatar: store.avatarUrl,
         name: store.name,
         nickName: store.nickName,
-        studentId: store.studentId,
+        studentId: store.xh,
         dormitory: store.usedBAddress ? store.usedBAddress.replace(/[^0-9]/g, '') : '--'
       };
 

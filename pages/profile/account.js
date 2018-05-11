@@ -6,6 +6,11 @@ Page({
         userInfo: {},
         xh:'',
     },
+    goUserinfo:function(){
+      wx.navigateTo({
+        url: 'user/user'
+      })
+    },
     //事件处理函数
     bindViewLogin: function () {
       wx.navigateTo({

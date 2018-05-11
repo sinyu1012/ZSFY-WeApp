@@ -8,3 +8,43 @@
 .login-icon{ 
  flex: none; 
 } 
+.index {
+  background-color: #f7f7f7;
+}
+
+/* 工具导航 */
+.tools-swiper {
+  height: 400rpx;
+  background: #f7f7f7;
+}
+.tools {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  padding-bottom: 60rpx;
+  background: #f7f7f7;
+}
+.tools__item {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 25%;
+}
+.tools__icon {
+  display: block;
+  width: 90rpx;
+  height: 90rpx;
+  margin: 25rpx auto 15rpx auto;
+}
+.tools__name {
+  display: block;
+  font-size: 10pt;
+  font-weight: bold;
+}
+
+/* 主体部分 */
+.main {
+  padding-top: 30rpx;
+}

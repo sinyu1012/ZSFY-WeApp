@@ -26,7 +26,8 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#2ba0fd",
     "navigationBarTitleText": "FY掌上大学",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#ffffff"
   },
   "tabBar": {
     "color": "#dddddd",

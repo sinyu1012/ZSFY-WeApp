@@ -39,7 +39,6 @@
   display: flex;
   width: 750rpx;
   height: 390rpx;
-  background-image: url("http://p37nq1juh.bkt.clouddn.com/userpage/mine_pic_card.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;

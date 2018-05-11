@@ -1,8 +1,27 @@
 <import src="../../style/footer.wxml" />
+
+<import src="/template/list/list.wxml" />
+<import src="/template/placeholder/placeholder.wxml" />
 <view class="page">
-  <view class="page__hd i-header-home">
+  <swiper class="tools-swiper" indicator-dots="true" indicator-color="#ddd" indicator-active-color="#999">
+    <swiper-item wx:for="{{tools}}" wx:key="*this">
+      <view class="tools">
+        <block wx:for="{{tools[index]}}" wx:key="id">
+          <navigator class="tools__item" url="{{item.url}}" wx:if="{{bind === true}}">
+            <image class="tools__icon" src="/image/tools/{{item.id}}.png"></image>
+            <text class="tools__name">{{item.name}}</text>
+          </navigator>
+          <view class="tools__item" wx:if="{{bind === false}}" bindtap="tapDisabledItem">
+            <image class="tools__icon" src="/images/tools/{{item.id}}.png"></image>
+            <text class="tools__name">{{item.name}}</text>
+          </view>
+        </block>
+      </view>
+    </swiper-item>
+  </swiper>
+  <!-- <view class="page__hd i-header-home">
     <image class="page__hd i-header-home" src="/image/home_czfy.jpg"></image> 
-  </view>
+  </view> -->
 
 
   <view class="page__bd">
