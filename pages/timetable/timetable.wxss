@@ -1,7 +1,7 @@
 /**index.wxss**/
 
 .flex-item {
-  width: 95rpx;
+  width: 130rpx;
   height: 100px;
 }
 
@@ -22,20 +22,24 @@
 .top {
   display: flex;
   flex-direction: row;
-  margin-left: 35rpx;
-  background-color: #2ba0fd;
-  color: #ffffff;
+  margin-left: 65rpx;
+  background-color: #ffffff;
+  color: #2ba0fd;
 }
 
 .top-text {
-  width: 100rpx;
+  width: 125rpx;
   height: 35rpx;
   font-size: 9pt;
   justify-content: center;
   display: flex;
   align-items: center;
 }
-
+.text {
+    overflow:hidden; 
+    text-overflow:ellipsis;
+    /* white-space:nowrap;   */
+}
 .scroll {
   height: 1170rpx;
   z-index: 101;
@@ -44,7 +48,7 @@
 
 .left {
   width: 35rpx;
-  height: 100rpx;
+  height: 150rpx;
   font-size: 9pt;
   justify-content: center;
   display: flex;

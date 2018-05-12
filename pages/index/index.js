@@ -43,7 +43,7 @@ Page({
         {
           id: 'card',
           name: '服务加盟',
-          url: '../otherpages/queryzaocao/queryzaocao'
+          url: 'joinad/joinad'
         },
         {
           id: 'repair',
