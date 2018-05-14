@@ -8,7 +8,7 @@
    <view class="section">
     </view>
     <view class="btn-area">
-      <button bindtap='query'  open-type="share" formType="submit">分享</button>
+      <button style='background-color: #CCC;color: #fff'  bindtap='query'  open-type="share" formType="submit">分享</button>
     </view>
 
   </view>

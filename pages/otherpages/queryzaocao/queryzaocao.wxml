@@ -9,11 +9,11 @@
       </view>
     </view>
     <view class="btn-area">
-      <button bindtap='query' formType="submit">查询次数</button>
+      <button  style='background-color: #CCC;color: #fff' bindtap='query' formType="submit">查询次数</button>
     </view>
   </view>
   <view class="btn-area">
-    <button bindtap='queryDetail' formType="submit">查询详细</button>
+    <button  style='background-color: #CCC;color: #fff' bindtap='queryDetail' formType="submit">查询详细</button>
   </view>
   <loading hidden="{{hiddenLoading}}">正在查询..</loading>
 </form>

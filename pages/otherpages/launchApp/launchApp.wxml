@@ -8,12 +8,12 @@
    <view class="section">
     </view>
     <view class="btn-area">
-     <button bindtap='download'>下载APP</button>
+     <button style='background-color: #CCC;color: #fff'  bindtap='download'>下载APP</button>
     
     </view>
 <view class="btn-area">
  
-      <button open-type="launchApp" app-parameter="wechat" binderror="launchAppError">打开APP</button>
+      <button style='background-color: #CCC;color: #fff'  open-type="launchApp" app-parameter="wechat" binderror="launchAppError">打开APP</button>
     </view>
   </view>
     <template is="foot" />

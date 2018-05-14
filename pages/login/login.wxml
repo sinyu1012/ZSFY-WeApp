@@ -20,8 +20,8 @@
   </view>
   <loading hidden="{{hiddenLoading}}">正在绑定..</loading>
   <view class="btn-area">
-    <button formType="submit">绑定</button>
-    <button formType="reset">清除</button>
+    <button style='background-color: #CCC' formType="submit">绑定</button>
+    <button style='background-color: #CCC'  formType="reset">清除</button>
   </view>
   <view class="reg">
     <view bindtap='help' hover-class="other-navigator-hover">如果有问题，点击帮助</view>

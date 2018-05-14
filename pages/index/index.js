@@ -47,8 +47,8 @@ Page({
         },
         {
           id: 'repair',
-          name: '报修',
-          url: '/pages/tools/repair/repair'
+          name: '打开APP',
+          url: '../otherpages/launchApp/launchApp'
         },
         {
           id: 'cet',
@@ -57,8 +57,8 @@ Page({
         },
         {
           id: 'physical',
-          name: '体测查询',
-          url: '/pages/tools/physical/physical'
+          name: '解除绑定',
+          url: '../login/unBind/unBind'
         }
       ],
       [
