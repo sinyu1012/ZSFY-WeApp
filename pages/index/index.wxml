@@ -2,7 +2,7 @@
 
 <import src="/template/list/list.wxml" />
 <import src="/template/placeholder/placeholder.wxml" />
-<view class="page">
+<view class="page "  >
   <swiper class="tools-swiper" indicator-dots="true" indicator-color="#ddd" indicator-active-color="#999">
     <swiper-item wx:for="{{tools}}" wx:key="*this">
       <view class="tools">
@@ -22,10 +22,92 @@
   <!-- <view class="page__hd i-header-home">
     <image class="page__hd i-header-home" src="/image/home_czfy.jpg"></image> 
   </view> -->
+  <view style='background: #f7f7f7'>
+   <view wx:if="{{remind}}" class="remind-box" >
+     <image wx:if="{{remind == '加载中'}}" class="remind-img" src="/image/common/loading.gif"></image> 
+    <block  wx:else>
+      <image class="remind-img" src="/image/common/fail.png"></image>
+      <text class="remind-text">{{remind}}</text>
+      <navigator  wx:if="{{remind == '未绑定'}}" url="../login/login" class="remind-btn">前往绑定</navigator>
+    </block>
+  </view>
+  <view  wx:else class="main-card" >
+  
+    <!--今日课表-->
+    <view class="main-card-item" id="kb" wx:if="{{card.kb.show}}">
+      <navigator url="/pages/core/kb/kb">
+        <view class="card-item-hd">
+          <image class="card-item-icon" src="/images/core/kb.png"></image>
+          <text class="card-item-name">今日课表</text>
+        </view>
+        <view wx:if="{{card.kb.nothing}}" class="card-item-bd kb-nothing">
+          <text>今天居然没有课~😆</text>
+        </view>
+        <view wx:else class="card-item-bd">
+          <view class="kb-item" wx:for="{{card.kb.data}}" wx:key="when">
+            <view class="kb-item-left">
+              <text class="kb-item-what">{{item.what}}</text>
+              <text class="kb-item-when">{{item.when}}</text>
+            </view>
+            <text class="kb-item-where">{{item.where}}</text>
+          </view>
+        </view>
+        <view class="kb-open">
+          <text>查看完整课表</text>
+        </view>
+      </navigator>
+    </view>
 
+    
+    
+    <!--借阅信息-->
+    <view class="main-card-item" id="jy" wx:if="{{card.jy.show}}">
+      <navigator url="/pages/core/jy/jy">
+        <view class="card-item-hd">
+          <image class="card-item-icon" src="/images/core/jy.png"></image>
+          <text class="card-item-name">借阅信息</text>
+        </view>
+        <view class="card-item-bd">
+          <view class="card-info-hd">
+            <view class="card-info-left">
+              <text class="card-info-name">{{user.we.info.name}}</text>
+              <text class="card-info-number">{{user.we.info.id}}</text>
+            </view>
+            <view class="card-info-right">
+              <text>当前借阅：{{card.jy.data.books_num}}</text>
+              <text>欠费金额：{{card.jy.data.dbet}}</text>
+            </view>
+          </view>
+          <view class="jy-list">
+            <view class="jy-item" wx:for="{{card.jy.data.book_list}}" wx:key="book_name">
+              <view class="jy-book">
+                <view class="jy-pickup-time">
+                  <text class="jy-pickup-time-value">{{item.jsrq}}</text>
+                  <text class="jy-pickup-time-text">借</text>
+                </view>
+                <text class="jy-book-name">{{item.book}}</text>
+              </view>
+              <view class="jy-return-time">
+                <text class="jy-return-time-value">{{item.yhrq}}</text>
+                <text class="jy-return-time-text">还</text>
+              </view>
+              <view class="jy-timing">
+                <text class="jy-timing-text" wx:if="{{item.timing>=0}}">还有</text>
+                <text class="jy-timing-text" wx:else>已超过</text>
+                <text class="jy-timing-value">{{item.timing>=0?item.timing:-item.timing}}</text>
+                <text class="jy-timing-text">天</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
 
-  <view class="page__bd">
-    <view class="weui-grids">
+   
+  </view>
+</view>
+  <!-- <view class="page__bd">
+     <!-- <view class="weui-grids">
       <block wx:for-items="{{grids}}" wx:key="{{index}}">
         <navigator bindtap="{{item.click}}" class="weui-grid" wx:if="{{item.click}}" hover-class="weui-grid_active">
           <image class="weui-grid__icon" src="/image/{{item.ico}}" />
@@ -36,13 +118,14 @@
           <view class="weui-grid__label">{{item.name}}</view>
         </navigator>
       </block>
-    </view>
-  </view>
-   <view class="page__ft" style='margin-top:20px;'>
+    </view>  -->
+    
+  <!-- </view> --> 
+   <!-- <view class="page__ft" style='margin-top:20px;'> -->
       <view class="page__bd page__bd_spacing">
         <view class="weui-footer ">
           <view class="weui-footer__text">Copyright © 2016-2018 Sinyu</view>
         </view>
       </view>
     </view>
-</view>
+<!-- </view> -->

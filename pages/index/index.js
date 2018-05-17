@@ -3,20 +3,21 @@ var common = require('../../utils/common.js');
 var app = getApp();
 var that;
 var util = require('../../utils/util.js');
-var grids = [
-  { "name": "失物招领", "ico": "foundlost.png", "url": "../otherpages/foundlost/index" },
-  { "name": "学号绑定 ", "ico": "home_bind.png", "url": "../login/login" },
-  { "name": "成绩查询", "ico": "knowledge_icon.png", "url": "../otherpages/score/score" },
-  { "name": "服务加盟", "ico": "home_join.png", "url": "joinad/joinad" },
-  { "name": "打卡查询", "ico": "home_xiaopic.png", "url": "../otherpages/queryzaocao/queryzaocao" },
-  { "name": "解除绑定", "ico": "home_unbind.png", "url":"../login/unBind/unBind"},
-  { "name": "打开APP", "ico": "home_app.png", "url": "../otherpages/launchApp/launchApp" },
-   { "name": "校园运动", "ico": "home_timetable.png", "url": "../timetable/timetable" },
-];
+// var grids = [
+//   { "name": "失物招领", "ico": "foundlost.png", "url": "../otherpages/foundlost/index" },
+//   { "name": "学号绑定 ", "ico": "home_bind.png", "url": "../login/login" },
+//   { "name": "成绩查询", "ico": "knowledge_icon.png", "url": "../otherpages/score/score" },
+//   { "name": "服务加盟", "ico": "home_join.png", "url": "joinad/joinad" },
+//   { "name": "打卡查询", "ico": "home_xiaopic.png", "url": "../otherpages/queryzaocao/queryzaocao" },
+//   { "name": "解除绑定", "ico": "home_unbind.png", "url":"../login/unBind/unBind"},
+//   { "name": "打开APP", "ico": "home_app.png", "url": "../otherpages/launchApp/launchApp" },
+//    { "name": "校园运动", "ico": "home_timetable.png", "url": "../timetable/timetable" },
+// ];
 Page({
   data: {
+    remind:'加载中',
     userInfo: {},
-    grids: grids,
+    // grids: grids,
     bind:true,
     tools: [
       [
@@ -73,6 +74,16 @@ Page({
   onLoad: function () {
     wx.clearStorage()
     var that = this
+    if (wx.getStorageSync('bind')==1)
+    {
+      that.setData({
+        remind: '加载中'
+      })
+    }else{
+      that.setData({
+        remind: '未绑定',
+      })
+    }
     wx.showShareMenu({
       withShareTicket: true //要求小程序返回分享目标信息
     })

@@ -1,4 +1,5 @@
 @import "../common/index.wxss";
+
 .navigator-hover button{
   background-color: #DEDEDE;
 }
@@ -15,14 +16,14 @@
 /* 工具导航 */
 .tools-swiper {
   height: 400rpx;
-  background: #f7f7f7;
+  background: #ffffff;
 }
 .tools {
   display: flex;
   flex-flow: row wrap;
   align-content: flex-start;
   padding-bottom: 60rpx;
-  background: #f7f7f7;
+  background: #ffffff;
 }
 .tools__item {
   display: flex;
