@@ -20,7 +20,8 @@
     "pages/profile/about/donate",
     "pages/otherpages/launchApp/launchApp",
     "pages/otherpages/webView/webView",
-    "pages/profile/user/user"
+    "pages/profile/user/user",
+    "pages/otherpages/cet/cet"
   ],
   "window": {
     "backgroundTextStyle": "light",

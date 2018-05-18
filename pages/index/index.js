@@ -54,7 +54,7 @@ Page({
         {
           id: 'cet',
           name: '四六级',
-          url: '/pages/tools/cet/cet'
+          url: '/pages/otherpages/cet/cet'
         },
         {
           id: 'physical',
