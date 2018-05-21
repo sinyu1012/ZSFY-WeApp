@@ -1,7 +1,51 @@
 page{ 
  height: 100%; 
+  background: #f7f7f7;
 } 
- 
+ /* 表单  */
+
+
+.input-label {
+  height: 20rpx;
+  line-height: 20rpx;
+  padding: 0 20rpx;
+  color: #888;
+  border-right: 1px solid #d8d8d8;
+  min-width: 80rpx;
+  text-align: justify;
+
+}
+.input-group input {
+  padding: 0 20rpx;
+  flex: 1;
+  min-height: 52rpx;
+  height: 52rpx;
+  line-height: 52rpx;
+}
+
+.input-group {
+   
+  display: flex;
+  align-items: center;
+  padding: 25rpx 10rpx;
+  margin:11px 60rpx;
+  background: #fff;
+  border-radius: 5px;
+  border: 2px solid #f4f4f4;
+
+}
+.input-group.active {
+  border: 2px solid #73b4ef;
+  
+ margin-top: 11px; 
+}
+
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
 .container { 
  height: 100%; 
  display: flex; 

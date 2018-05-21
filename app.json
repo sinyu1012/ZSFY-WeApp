@@ -21,7 +21,8 @@
     "pages/otherpages/launchApp/launchApp",
     "pages/otherpages/webView/webView",
     "pages/profile/user/user",
-    "pages/otherpages/cet/cet"
+    "pages/otherpages/cet/cet",
+    "pages/otherpages/cet/result"
   ],
   "window": {
     "backgroundTextStyle": "light",

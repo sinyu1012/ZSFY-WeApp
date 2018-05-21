@@ -19,6 +19,7 @@ Page({
     userInfo: {},
     // grids: grids,
     bind:true,
+    isbind:1,
     tools: [
       [
         {
@@ -72,9 +73,10 @@ Page({
     ],
   },
   onLoad: function () {
-    wx.clearStorage()
+    // wx.clearStorage()
     var that = this
-    if (wx.getStorageSync('bind')==1)
+    this.getUserInfo();
+    if (isbind==1)
     {
       that.setData({
         remind: '加载中'
@@ -115,6 +117,18 @@ Page({
       })
     })
 
+  },
+  getUserInfo: function () {
+    var store = {};
+
+    // app.checkInfo();
+    store = app.store;
+
+    if (JSON.stringify(store) !== '{}') {
+      this.setData({
+        isbind: store.bind
+      });
+    }
   },
   autuLogin: function () {
     //common.showModal("App.js实现小程序访问则将数据写入系统User表，具体代码请查看App.js。")

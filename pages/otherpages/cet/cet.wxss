@@ -2,14 +2,22 @@
   background: #f7f7f7;
 }
 
+.home{
+  font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+  font-size: 10pt;
+  line-height: 150%;
+  color: #666;
+  max-height: 60%;
+  position: relative;
+  flex-direction: column;
+  align-items: stretch;
+}
 /* 顶部导航  */
 
 .navTab{
   display: flex;
   margin-left: 20rpx;
   margin-right: 20rpx;
-  margin-top: 30rpx;
-  margin-bottom: 35rpx;
   background: #fff;
   height: 80rpx;
   line-height: 80rpx;

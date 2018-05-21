@@ -7,21 +7,36 @@
   </view>
 
 <form bindsubmit="formSubmit" bindreset="formReset">
-  <view class="section">
+<view class="input-group {{name_focus ? 'active' : ''}}">
+            <text class="input-label">
+              <text class="left">学</text>
+              <text class="right">号</text>
+            </text>
+            <input id="name" name="username" data-name="name" confirm-type ="next" type="text" cursor-spacing="30"  value='20174630302014' placeholder="请输入学号" bindinput="checkInput" bindfocus="inputFocus" bindblur="inputBlur" />
+        </view>
+        <view class="input-group {{name_focus ? 'active' : ''}}">
+            <text class="input-label">
+              <text class="left">密</text>
+              <text class="right">码</text>
+            </text>
+            <input id="name" name="paswd" data-name="name" confirm-type ="next" type="text" cursor-spacing="30"  value='320325199906303921' placeholder="请输入密码" bindinput="checkInput" bindfocus="inputFocus" bindblur="inputBlur" />
+        </view>
+  <!-- <view class="section">
     <input placeholder="请输入学号" value='20174630302014' name="username" />
-  </view>
-  <view class="section">
+  </view> -->
+  <!-- <view class="section">
     <input placeholder="请输入密码" value='320325199906303921'  name="paswd" />
-  </view>
+  </view> -->
   <view class="content">
+
     <input class="section-yzm" placeholder="验证码" name="yzm" auto-focus/>
     <image bindtap='updateyzm' class="yzmImage" src="{{imageUrl}}" mode="aspectFill">
   </image>
   </view>
   <loading hidden="{{hiddenLoading}}">正在绑定..</loading>
   <view class="btn-area">
-    <button style='background-color: #CCC' formType="submit">绑定</button>
-    <button style='background-color: #CCC'  formType="reset">清除</button>
+    <button style='background-color: #2ba0fd;color:#fff' formType="submit">绑定</button>
+    <button style='background-color: #2ba0fd;color:#fff'  formType="reset">清除</button>
   </view>
   <view class="reg">
     <view bindtap='help' hover-class="other-navigator-hover">如果有问题，点击帮助</view>

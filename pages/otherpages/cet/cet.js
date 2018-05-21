@@ -156,7 +156,7 @@ Page({
     // });
     wx.showToast({
       title: '敬请期待',
-      image: '../../../images/core/close.png',
+      image: '../../../image/common/close.png',
       duration: 2000
     })
   },

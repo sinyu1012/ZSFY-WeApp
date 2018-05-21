@@ -9,6 +9,7 @@
 @import "/template/course/course.wxss";
 @import "/template/details/details.wxss";
 @import "/template/bar/bar.wxss";
+
 .container {
   height: 100%;
   display: flex;
@@ -25,7 +26,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-bottom: 300rpx;
+  padding-bottom: 500rpx;
 }
 .remind-img {
   width: 250rpx;

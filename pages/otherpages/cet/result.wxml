@@ -1,6 +1,6 @@
 <view class="container home">
    <view wx:if="{{remind}}" class="remind-box">
-        <image wx:if="{{remind == '加载中'}}" class="remind-img" src="/images/index/loading.gif"></image>
+        <image wx:if="{{remind == '加载中'}}" class="remind-img" src="/image/common/loading.gif"></image>
         <block wx:else>
           <image class="remind-img" src="/images/index/nothing.png"></image>
           <text class="remind-text">{{remind}}</text>
