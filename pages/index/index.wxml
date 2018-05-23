@@ -2,7 +2,7 @@
 
 <import src="/template/list/list.wxml" />
 <import src="/template/placeholder/placeholder.wxml" />
-<view class="page "  >
+<view class="page"  >
   <swiper class="tools-swiper" indicator-dots="true" indicator-color="#ddd" indicator-active-color="#999">
     <swiper-item wx:for="{{tools}}" wx:key="*this">
       <view class="tools">
@@ -34,10 +34,10 @@
   <view  wx:else class="main-card" >
   
     <!--今日课表-->
-    <view class="main-card-item" id="kb" wx:if="{{card.kb.show}}">
-      <navigator url="/pages/core/kb/kb">
+    <view class="main-card-item" id="kb" >
+      <view bindtap='nextTimetable'>
         <view class="card-item-hd">
-          <image class="card-item-icon" src="/images/core/kb.png"></image>
+          <image class="card-item-icon" src="/image/common/kb.png"></image>
           <text class="card-item-name">今日课表</text>
         </view>
         <view wx:if="{{card.kb.nothing}}" class="card-item-bd kb-nothing">
@@ -55,7 +55,7 @@
         <view class="kb-open">
           <text>查看完整课表</text>
         </view>
-      </navigator>
+      </view>
     </view>
 
     
@@ -106,6 +106,7 @@
    
   </view>
 </view>
+    </view>
   <!-- <view class="page__bd">
      <!-- <view class="weui-grids">
       <block wx:for-items="{{grids}}" wx:key="{{index}}">
@@ -127,5 +128,5 @@
           <view class="weui-footer__text">Copyright © 2016-2018 Sinyu</view>
         </view>
       </view> -->
-    </view>
+
 <!-- </view> -->

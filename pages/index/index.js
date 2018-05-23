@@ -15,11 +15,13 @@ var util = require('../../utils/util.js');
 // ];
 Page({
   data: {
+    isbind: 1,
     remind:'加载中',
     userInfo: {},
     // grids: grids,
     bind:true,
-    isbind:1,
+    card:
+    { "kb": { "nothing": 0, "data": [{ "when": "第一节 1-6,11-13(1,2)", "what": "创业实务", "where": "4B401,403" }, { "when": "第三节 9-13(3,4)", "what": "电子商务网站建设与优化", "where": "4A505,507" }] }, "jy": { "show": 1, "data": { "books_num": 1, "dbet": 1, "book_list": [{ "book": 2, "jsrq": "就业指导 2-6,11-13(1,2) 张晓敏 4B401,403" }] } } },
     tools: [
       [
         {
@@ -75,11 +77,11 @@ Page({
   onLoad: function () {
     // wx.clearStorage()
     var that = this
-    this.getUserInfo();
-    if (isbind==1)
+    //this.getUserInfo();
+    if (wx.getStorageSync('bind')==1)
     {
       that.setData({
-        remind: '加载中'
+        remind: ''
       })
     }else{
       that.setData({
@@ -123,12 +125,18 @@ Page({
 
     // app.checkInfo();
     store = app.store;
-
+    console.log(store)
     if (JSON.stringify(store) !== '{}') {
+      console.log('bind'+store.bind)
       this.setData({
         isbind: store.bind
       });
     }
+  },
+  nextTimetable: function () {
+    wx.switchTab({
+      url: '/pages/timetable/timetable'
+    });  
   },
   autuLogin: function () {
     //common.showModal("App.js实现小程序访问则将数据写入系统User表，具体代码请查看App.js。")
