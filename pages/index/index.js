@@ -30,27 +30,27 @@ Page({
           url: '../otherpages/score/score'
         },
         {
-          id: 'classroom',
+          id: 'bind',
           name: '学号绑定',
           url: '../login/login'
         },
         {
-          id: 'score',
+          id: 'foundlost',
           name: '失物招领',
           url: '../otherpages/foundlost/index'
         },
         {
-          id: 'library',
+          id: 'querydaka',
           name: '打卡查询',
           url: '../otherpages/queryzaocao/queryzaocao'
         },
         {
-          id: 'card',
+          id: 'service',
           name: '服务加盟',
           url: 'joinad/joinad'
         },
         {
-          id: 'repair',
+          id: 'app',
           name: '打开APP',
           url: '../otherpages/launchApp/launchApp'
         },
@@ -60,7 +60,7 @@ Page({
           url: '/pages/otherpages/cet/cet'
         },
         {
-          id: 'physical',
+          id: 'unbind',
           name: '解除绑定',
           url: '../login/unBind/unBind'
         }
@@ -81,7 +81,25 @@ Page({
     if (wx.getStorageSync('bind')==1)
     {
       that.setData({
-        remind: ''
+        remind: '加载中'
+      })
+      //获取今天数据
+      wx.request({
+        url: getApp().data.getTodayInfo,
+        header: {
+          'content-type': 'application/x-www-form-urlencoded' // 默认值
+        },
+        method: "POST",
+        data: {
+          xh: wx.getStorageSync('xh'),
+        },
+        success: function (res) {
+          console.log(res)
+          that.setData({
+            card:res.data,
+            remind: ''
+          })
+        }
       })
     }else{
       that.setData({
@@ -98,7 +116,6 @@ Page({
       that.setData({
         userInfo: userInfo
       })
-      
       //提交打开记录
       wx.request({
         url: getApp().data.openLogUrl,
@@ -118,6 +135,7 @@ Page({
         }
       })
     })
+    
 
   },
   getUserInfo: function () {

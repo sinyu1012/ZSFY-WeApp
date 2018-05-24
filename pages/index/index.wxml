@@ -3,6 +3,9 @@
 <import src="/template/list/list.wxml" />
 <import src="/template/placeholder/placeholder.wxml" />
 <view class="page"  >
+  <view class="page__hd i-header-home">
+    <image class="page__hd i-header-home" src="/image/home_czfy.jpg"></image> 
+  </view> 
   <swiper class="tools-swiper" indicator-dots="true" indicator-color="#ddd" indicator-active-color="#999">
     <swiper-item wx:for="{{tools}}" wx:key="*this">
       <view class="tools">
@@ -19,9 +22,7 @@
       </view>
     </swiper-item>
   </swiper>
-  <!-- <view class="page__hd i-header-home">
-    <image class="page__hd i-header-home" src="/image/home_czfy.jpg"></image> 
-  </view> -->
+ 
   <view style='background: #f7f7f7'>
    <view wx:if="{{remind}}" class="remind-box" >
      <image wx:if="{{remind == '加载中'}}" class="remind-img" src="/image/common/loading.gif"></image> 
@@ -64,7 +65,7 @@
     <view class="main-card-item" id="jy" wx:if="{{card.jy.show}}">
       <navigator url="/pages/core/jy/jy">
         <view class="card-item-hd">
-          <image class="card-item-icon" src="/images/core/jy.png"></image>
+          <image class="card-item-icon" src="/image/common/jy.png"></image>
           <text class="card-item-name">借阅信息</text>
         </view>
         <view class="card-item-bd">

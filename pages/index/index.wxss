@@ -35,14 +35,13 @@
 }
 .tools__icon {
   display: block;
-  width: 90rpx;
-  height: 90rpx;
+  width: 70rpx;
+  height: 70rpx;
   margin: 25rpx auto 15rpx auto;
 }
 .tools__name {
   display: block;
   font-size: 10pt;
-  font-weight: bold;
 }
 
 /* 主体部分 */
