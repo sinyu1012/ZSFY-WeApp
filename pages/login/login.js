@@ -92,6 +92,13 @@ Page({
               console.log(result)
               if (result.data.flag == 1) {
                 wx.setStorage({
+                  key: 'isBindFlag',
+                  data: 1,
+                  success: function (s) {
+                    console.log('异步保存成功isBindFlag' +1)
+                  }
+                })
+                wx.setStorage({
                   key: 'xh',
                   data: event.detail.value.username,
                   success: function (s) {
@@ -117,6 +124,9 @@ Page({
                   toastHidden: false, //吐司  
                   toastText: '绑定成功，' + that.data.jwUserInfo.stuPerInfo.name,//吐司文本  
                 })
+                app.store.bind = 1;
+                app.store.name = res.data.stuPerInfo.name;
+                app.store.xh = event.detail.value.username;
                 setTimeout(function () {
                   wx.navigateBack({
                     delta: 1

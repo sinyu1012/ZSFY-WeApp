@@ -77,38 +77,27 @@ Page({
   onLoad: function () {
     // wx.clearStorage()
     var that = this
-    console.log(wx.getStorageSync('isBindFlag'))
+    
     //this.getUserInfo();
-    if (wx.getStorageSync('isBindFlag')==1)
-    {
-      that.setData({
-        remind: '加载中'
-      })
-      //获取今天数据
-      wx.request({
-        url: getApp().data.getTodayInfo,
-        header: {
-          'content-type': 'application/x-www-form-urlencoded' // 默认值
-        },
-        method: "POST",
-        data: {
-          xh: wx.getStorageSync('xh'),
-        },
-        success: function (res) {
-          console.log(res)
-          that.setData({
-            card:res.data,
-            remind: ''
-          })
-        }
-      })
-    }else{
-      that.setData({
-        remind: '未绑定',
-      })
-    }
+    // this.getBindinfo();
     wx.showShareMenu({
       withShareTicket: true //要求小程序返回分享目标信息
+    })
+    //获取基本信息
+    wx.request({
+      url: getApp().data.basicInfo,
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      success: function (res) {
+        wx.setStorage({
+          key: 'kaixueriqi',
+          data: res.data[0].kaixueriqi.replace(/\s+/g, ''),
+          success: function (s) {
+            console.log('异步保存成功kaixueriqi:' + res.data[0].kaixueriqi.replace(/\s+/g, ''))
+          }
+        })
+      }
     })
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function (userInfo) {
@@ -128,7 +117,8 @@ Page({
           name: that.data.userInfo.nickName,
           city: that.data.userInfo.city,
           url: that.data.userInfo.avatarUrl,
-          time: util.formatTime(new Date())
+          time: util.formatTime(new Date()),
+          openid: wx.getStorageSync('openid')
         },
         success: function (res) {
           console.log(res)
@@ -136,8 +126,37 @@ Page({
         }
       })
     })
-    
-
+  },
+  getBindinfo:function(){
+    var that = this
+    console.log(wx.getStorageSync('isBindFlag'))
+    if (wx.getStorageSync('isBindFlag') == 1) {
+      that.setData({
+        remind: '加载中'
+      })
+      //获取今天数据
+      wx.request({
+        url: getApp().data.getTodayInfo,
+        header: {
+          'content-type': 'application/x-www-form-urlencoded' // 默认值
+        },
+        method: "POST",
+        data: {
+          xh: wx.getStorageSync('xh'),
+        },
+        success: function (res) {
+          console.log(res)
+          that.setData({
+            card: res.data,
+            remind: ''
+          })
+        }
+      })
+    } else {
+      that.setData({
+        remind: '未绑定',
+      })
+    }
   },
   getUserInfo: function () {
     var store = {};
@@ -162,22 +181,7 @@ Page({
   },
   onShow: function () {
     var that = this
-    //获取基本信息
-    wx.request({
-      url: getApp().data.basicInfo,
-      header: {
-        'content-type': 'application/x-www-form-urlencoded' // 默认值
-      },
-      success: function (res) {
-        wx.setStorage({
-          key: 'kaixueriqi',
-          data: res.data[0].kaixueriqi.replace(/\s+/g, ''),
-          success: function (s) {
-            console.log('异步保存成功kaixueriqi:' + res.data[0].kaixueriqi.replace(/\s+/g, ''))
-          }
-        })
-      }
-    })
+    this.getBindinfo();
     //获取openid
     // wx.login({
     //   success: function (res) {

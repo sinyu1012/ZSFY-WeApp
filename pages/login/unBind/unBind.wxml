@@ -12,5 +12,6 @@
     </view>
 
   </view>
+   <loading hidden="{{hiddenLoading}}">正在解绑..</loading>
     <template is="foot" />
 </view>

@@ -1,15 +1,20 @@
 // pages/interface/getPhone/getPhone.js
 var Bmob = require('../../../utils/bmob.js');
 var common = require('../../../utils/common.js');
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    hiddenLoading: true,
   },
   query:function(){
+    var that = this
+    this.setData({
+      hiddenLoading: !this.data.hiddenLoading
+    })
     wx.request({
       url: getApp().data.unBindUserUrl,
       data: {
@@ -21,12 +26,27 @@ Page({
       method: "POST",
       success: function (res) {
         console.log(res)
+        that.setData({
+          hiddenLoading: true
+        })
         if (res.data.issuccess == 1) {
           wx.showToast({
             title: '解绑成功',
             image: '/image/common/smile.png',
             duration: 2000
           });
+          app.store.bind = 0;
+          app.store.name = '';
+          app.store.xh = '';
+          wx.clearStorage()
+          wx.setStorage({
+            key: 'isBindFlag',
+            data:0,
+            success: function (s) {
+              console.log('异步保存成功isBindFlag:' +0)
+            }
+          })
+          
         }else{
           wx.showToast({
             title: '请先绑定学号',
