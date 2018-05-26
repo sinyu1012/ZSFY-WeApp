@@ -77,8 +77,9 @@ Page({
   onLoad: function () {
     // wx.clearStorage()
     var that = this
+    console.log(wx.getStorageSync('isBindFlag'))
     //this.getUserInfo();
-    if (wx.getStorageSync('bind')==1)
+    if (wx.getStorageSync('isBindFlag')==1)
     {
       that.setData({
         remind: '加载中'

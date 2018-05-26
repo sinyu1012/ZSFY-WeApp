@@ -29,9 +29,9 @@
   padding-bottom: 500rpx;
 }
 .remind-img {
-  width: 250rpx;
-  height: 250rpx;
-  padding-bottom: 25rpx;
+  width: 150rpx;
+  height: 150rpx;
+  padding-bottom: 5rpx;
 
 }
 .remind-btn {
@@ -45,7 +45,7 @@
   color: #fff;
 }
 .remind-text {
-  font-size: 12pt;
+  font-size: 10pt;
   line-height: 150%;
 }
 /* reset */

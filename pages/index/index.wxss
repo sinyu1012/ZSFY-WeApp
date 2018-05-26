@@ -66,7 +66,7 @@
 .main-card-item#kb{
   /*background-image: url('/images/index/kb-bg.png');*/
   /*微信暂不支持静态bgimg文件，改用服务器url*/
-  background-image: url('https://we.cqu.pt/app/images/index/kb-bg.png');
+  background-image: url('http://p99dm2apg.bkt.clouddn.com/kb-bg.png');
 }
 .main-card-item#ykt{
   /*background-image: url('/images/index/ykt-bg.png');*/
@@ -76,7 +76,7 @@
 .main-card-item#jy{
   /*background-image: url('/images/index/jy-bg.png');*/
   /*微信暂不支持静态bgimg文件，改用服务器url*/
-  background-image: url('https://we.cqu.pt/app/images/index/jy-bg.png');
+  background-image: url('http://p99dm2apg.bkt.clouddn.com/jy-bg.png');
 }
 .main-card-item#sdf{
   /*background-image: url('/images/index/sdf-bg.png');*/

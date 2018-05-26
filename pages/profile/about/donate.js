@@ -66,10 +66,10 @@ Page({
   previewImage: function() {
     var qrUrl = {
       wechatpay: [
-        'https://user-images.githubusercontent.com/32887891/32139948-26a41d82-bc8b-11e7-8b0d-871bf6692d86.png'
+        'http://p99dm2apg.bkt.clouddn.com/wechatpay_qrcode.png'
       ],
       alipay: [
-        'https://user-images.githubusercontent.com/32887891/32139946-215f8a3c-bc8b-11e7-8faa-50eb87e11cdc.png'
+        'http://p99dm2apg.bkt.clouddn.com/alipay_qrcode.png'
       ]
     };
 
