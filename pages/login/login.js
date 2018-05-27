@@ -125,6 +125,7 @@ Page({
                   toastText: '绑定成功，' + that.data.jwUserInfo.stuPerInfo.name,//吐司文本  
                 })
                 app.store.bind = 1;
+                app.store.isrefresh = 1;
                 app.store.name = res.data.stuPerInfo.name;
                 app.store.xh = event.detail.value.username;
                 setTimeout(function () {

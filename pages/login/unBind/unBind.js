@@ -38,6 +38,7 @@ Page({
           app.store.bind = 0;
           app.store.name = '';
           app.store.xh = '';
+          app.store.isrefresh = 1;
           wx.clearStorage()
           wx.setStorage({
             key: 'isBindFlag',

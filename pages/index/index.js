@@ -65,13 +65,13 @@ Page({
           url: '../login/unBind/unBind'
         }
       ],
-      [
-        {
-          id: 'calendar',
-          name: '校历',
-          url: '/pages/tools/calendar/calendar'
-        }
-      ]
+      // [
+      //   {
+      //     id: 'calendar',
+      //     name: '校历',
+      //     url: '/pages/tools/calendar/calendar'
+      //   }
+      // ]
     ],
   },
   onLoad: function () {
@@ -181,7 +181,11 @@ Page({
   },
   onShow: function () {
     var that = this
-    this.getBindinfo();
+    if (app.store.isrefresh ==1){
+      this.getBindinfo();
+      app.store.isrefresh=0
+    }
+    
     //获取openid
     // wx.login({
     //   success: function (res) {
