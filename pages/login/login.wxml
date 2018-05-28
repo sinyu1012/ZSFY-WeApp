@@ -29,7 +29,7 @@
   </view> -->
   <view class="content">
 
-    <input class="section-yzm" placeholder="验证码" name="yzm" auto-focus/>
+    <input class="section-yzm" placeholder="验证码" name="yzm" />
     <image bindtap='updateyzm' class="yzmImage" src="{{imageUrl}}" mode="aspectFill">
   </image>
   </view>

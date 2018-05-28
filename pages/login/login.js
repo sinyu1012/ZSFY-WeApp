@@ -37,6 +37,7 @@ Page({
         toastHidden: false, //吐司  
         toastText: '已经绑定：' + wx.getStorageSync('xh'),//吐司文本  
       })
+      app.store.isrefresh = 1;
       setTimeout(function () {
         wx.navigateBack({
           delta: 1
