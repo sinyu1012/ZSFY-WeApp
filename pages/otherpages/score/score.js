@@ -41,7 +41,23 @@ Page({
           url: '../../login/login',
         })
       }, 2000);
-     
+      }else{
+        wx.request({
+          url: getApp().data.getScore,
+          data: {
+            xh: wx.getStorageSync('xh'),
+          },
+          header: {
+            'content-type': 'application/x-www-form-urlencoded' // 默认值
+          },
+          method: "POST",
+          success: function (res) {
+            console.log(res)
+            that.setData({
+              scoreList: res.data.chengji
+            });
+          }
+        });
       }
   },
   onShow:function(){
