@@ -45,9 +45,9 @@ Page({
           url: '../otherpages/queryzaocao/queryzaocao'
         },
         {
-          id: 'service',
-          name: '服务加盟',
-          url: 'joinad/joinad'
+          id: 'user',
+          name: '个人资料',
+          url: '../profile/user/user'
         },
         {
           id: 'app',
@@ -65,13 +65,14 @@ Page({
           url: '../login/unBind/unBind'
         }
       ],
-      // [
-      //   {
-      //     id: 'calendar',
-      //     name: '校历',
-      //     url: '/pages/tools/calendar/calendar'
-      //   }
-      // ]
+      [
+       
+      {
+        id: 'service',
+        name: '服务加盟',
+        url: 'joinad/joinad'
+      }
+      ]
     ],
   },
   onLoad: function () {

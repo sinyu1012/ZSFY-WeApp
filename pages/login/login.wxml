@@ -12,14 +12,14 @@
               <text class="left">学</text>
               <text class="right">号</text>
             </text>
-            <input id="name" name="username" data-name="name" confirm-type ="next" type="text" cursor-spacing="30"  value='20174630302014' placeholder="请输入学号" bindinput="checkInput" bindfocus="inputFocus" bindblur="inputBlur" />
+            <input id="name" name="username" data-name="name" confirm-type ="next" type="text" cursor-spacing="30"  value='2016454006' placeholder="请输入学号" bindinput="checkInput" bindfocus="inputFocus" bindblur="inputBlur" />
         </view>
         <view class="input-group {{name_focus ? 'active' : ''}}">
             <text class="input-label">
               <text class="left">密</text>
               <text class="right">码</text>
             </text>
-            <input id="name" name="paswd" data-name="name" confirm-type ="next" type="text" cursor-spacing="30"  value='320325199906303921' placeholder="请输入密码" bindinput="checkInput" bindfocus="inputFocus" bindblur="inputBlur" />
+            <input id="name" name="paswd" data-name="name" confirm-type ="next" type="text" password='true' cursor-spacing="30"  value='320921199810148872' placeholder="请输入密码" bindinput="checkInput" bindfocus="inputFocus" bindblur="inputBlur" />
         </view>
   <!-- <view class="section">
     <input placeholder="请输入学号" value='20174630302014' name="username" />
