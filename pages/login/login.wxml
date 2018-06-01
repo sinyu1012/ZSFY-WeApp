@@ -3,7 +3,7 @@
 </view> -->
   <view class="page__hd i-header">
     <view class="i-header-h1 h50">绑定教务系统账号，实时获取信息！</view>
-    <view class="i-header-h1"></view>
+    <view class="i-header-h1">提供测试体验账号</view>
   </view>
 
 <form bindsubmit="formSubmit" bindreset="formReset">
