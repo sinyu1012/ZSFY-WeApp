@@ -42,6 +42,10 @@ Page({
         })
       }, 2000);
       }else{
+      wx.showLoading({
+        title: '获取中',
+        mask: true
+      });
         wx.request({
           url: getApp().data.getScore,
           data: {
@@ -53,6 +57,7 @@ Page({
           method: "POST",
           success: function (res) {
             console.log(res)
+            wx.hideLoading();
             that.setData({
               scoreList: res.data.chengji
             });
@@ -104,6 +109,10 @@ Page({
           // 更新视图
           this.setData({
             scoreList: _requestRes.chengji
+          });
+          wx.showToast({
+            title: '刷新成功',
+            duration: 1000
           });
         } else if (_requestRes.stuInfo.flag == 0) {
           wx.showToast({
