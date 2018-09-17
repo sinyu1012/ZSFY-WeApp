@@ -13,7 +13,7 @@
   <view class="course-detail" id="course-detail" bindtap="hideDetail">
     <view class="course-detail__box">
       <image class="course-detail__close" id="close-detail" src="/images/common/clear.png" bindtap="hideDetail"></image>
-      <view wx:for="{{courseDetail}}" wx:key="{{*this}}" class="course-detail__content">
+      <view wx:for="{{courseDetail}}" wx:key="{{this}}" class="course-detail__content">
         <view class="course-detail__name">
           <text>{{item.name}}</text>
           <text class="course-detail__flag" wx:if="{{!item.current}}">[非本周]</text>

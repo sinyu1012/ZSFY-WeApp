@@ -30,6 +30,8 @@
       <image class="remind-img" src="/image/common/fail.png"></image>
       <text class="remind-text">{{remind}}</text>
       <navigator  wx:if="{{remind == '未绑定'}}" url="../login/login" class="remind-btn">前往绑定</navigator>
+       
+      <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">授权</button>
     </block>
   </view>
   <view  wx:else class="main-card" >
