@@ -19,6 +19,10 @@
       <text>开发者信息</text>
       <image class="menu-list__r-icon" src="/image/more/arrow_right.png"></image>
     </button>
+     <button bindtap="setting" class="menu-list__item menu-list__contact">
+      <text>授权设置</text>
+      <image class="menu-list__r-icon" src="/image/more/arrow_right.png"></image>
+    </button>
   </view>
 
   <!-- 版权 -->

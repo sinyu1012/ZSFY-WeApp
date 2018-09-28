@@ -7,7 +7,9 @@ Page({
   onLoad: function() {
     this.getVersion();
   },
-
+  setting: function () {
+    wx.openSetting()
+  },
   // 获取版本
   getVersion: function() {
     this.setData({

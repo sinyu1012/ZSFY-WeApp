@@ -9,16 +9,37 @@ Page({
       studentId: '',
       dormitory: ''
     },
+    userInfo1: {},
     bind: false
   },
-  onLoad: function() {
+  onShow: function() {
     // 获取用户基本信息
+
     this.getUserInfo();
   },
   getUserInfo: function() {
     var store = app.store;
+    var that = this
     console.log(store)
-
+    if (!app.globalData.userInfo) {
+      wx.showToast({
+        title: '请先授权',
+        image: '/image/common/smile.png',
+        duration: 1000
+      });
+      setTimeout(function () {
+        wx.navigateTo({
+          url: '../../otherpages/authorization/authorization',
+        })
+      }, 1000);
+    }
+    app.getUserInfo(function (userInfo) {
+      console.log(userInfo)
+      //更新数据
+      that.setData({
+        userInfo1: userInfo
+      })
+    })
     if (JSON.stringify(store) !== '{}') {
       var userInfo = {
         avatar: store.avatarUrl,

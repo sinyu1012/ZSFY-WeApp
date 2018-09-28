@@ -106,7 +106,7 @@ Page({
     var title = event.detail.value.title;
     var content = event.detail.value.content;
     var formId = event.detail.formId;
-    var phone = event.detail.phone;
+    var phone = event.detail.value.phone;
     console.log("event", event)
     if (!title) {
       common.showTip("标题不能为空", "loading");

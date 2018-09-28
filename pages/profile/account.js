@@ -19,6 +19,18 @@ Page({
     },
     onLoad: function () {
         var that = this
+      if (!app.globalData.userInfo) {
+        wx.showToast({
+          title: '请先授权',
+          image: '/image/common/smile.png',
+          duration: 1000
+        });
+        setTimeout(function () {
+          wx.navigateTo({
+            url: '../otherpages/authorization/authorization',
+          })
+        }, 1000);
+      }
         this.setData({
           xh: wx.getStorageSync('xh')
         })

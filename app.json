@@ -22,7 +22,8 @@
     "pages/otherpages/webView/webView",
     "pages/profile/user/user",
     "pages/otherpages/cet/cet",
-    "pages/otherpages/cet/result"
+    "pages/otherpages/cet/result",
+    "pages/otherpages/authorization/authorization"
   ],
   "window": {
     "backgroundTextStyle": "light",
